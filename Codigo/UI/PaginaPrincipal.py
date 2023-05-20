@@ -144,51 +144,8 @@ class App:
         if self.figura is not None:                 # Eliminar el widget Label del resultado si es que hay uno.
             self.figura.destroy()
 
-        # imagen_normalizada = Normalizador.Analizar("imagen_a_analizar", "imagen_analizada")
-        imagen = cv2.imread("imagen_a_analizar/imagen_ingresada.png")
-        imagen_normalizada = cv2.resize(imagen, (100, 100))
-        imagen_normalizada = cv2.cvtColor(imagen_normalizada, cv2.COLOR_BGR2GRAY)
-        imagen_normalizada = imagen_normalizada.reshape(100, 100, 1)
-        cv2.imwrite("./imagen_analizada/imagen_normalizada.png",
-                    imagen_normalizada)  # Guardar la imagen en el directorio especificado
-
-        imagenes, etiquetas = cargar_imagenes_y_etiquetas("imagenes_normalizadas")
-
-        # Creo un objeto de la clase entrenador, dejo las propiedades por defecto.
-        modelo = Modelo()
-        entrenador = Entrenador(modelo, imagenes, etiquetas)
-
-        # Llamo a la funcion entrenar.
-        entrenador.entrenar()
-
-        # Guardo resultado de la prediccion (numero 0-5).
-        imagen_tensor = np.expand_dims(imagen_normalizada, axis=0)
-        prediccion = entrenador.modelo.arquitectura.predict(imagen_tensor)
-
-        # prediccion_red = np.around(prediccion, 2)
-        # Guardo valores de cada resultado en un diccionario.
-        figuras = {
-            0: "CIRCULO",
-            1: "TRIANGULO",
-            2: "CUADRADO"
-        }
-        prediccion = np.around(prediccion.flatten(), 3)
-        print('circulo', prediccion[0])
-        print('triangulo', prediccion[1])
-        print('cuadrado', prediccion[2])
-        reconoce = False;
-        m = prediccion[0]
-        indice = 0
-        # Guardo el indice de la figura que más cerca estuvo del 100%.
-        for i in range(len(prediccion)):
-            if prediccion[i] > 0.7:
-                reconoce = True
-                if prediccion[i] > m:
-                    m = prediccion[i]
-                    indice = i
-
-        # Guardo en nombre_figura, el valor de la clave que predijo.
-        nombre_figura = figuras[indice]
+        reconoce = False
+        nombre_figura = ""
 
         if reconoce == True:
             self.texto_reconoce = tk.Label(contenedor_abajo, text="Es un:", font=('Arial', 14), fg="#666a88", bg="#fcfcfc", pady=30)
