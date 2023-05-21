@@ -1,27 +1,84 @@
 # Proyecto de Detección de Figuras Geométricas
 
-![Título del Proyecto](ruta-a-tu-imagen-del-titulo.png)
+![Título del Proyecto](https://cdn.discordapp.com/attachments/1081778303406448753/1109979459093794846/image.png)
 
 ## Perfiles de los Integrantes
 
 | Nombre            | Rol                | Avatar                                  |
 |-------------------|--------------------|-----------------------------------------|
-| Luca Zamperoni    | Modelo             | <img src="https://avatars.githubusercontent.com/u/129890529?v=4" width="100px" height="100px">  |
-| Valentin Tamola   | DataSet            | <img src="https://avatars.githubusercontent.com/u/129886045?v=4" width="100px">  |
-| Jazmín Rillo      | UI                 | <img src="https://avatars.githubusercontent.com/u/129994394?s=70&v=4" width="100px">  |
-| Franco Santibañez | Entrenador         | <img src="https://avatars.githubusercontent.com/u/129998263?s=70&v=4" width="100px">  |
-| Lucas Cardobe     | Normalizador       | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
+| Luca Zamperoni    | Product Owner      | <img src="https://avatars.githubusercontent.com/u/129890529?v=4" width="100px" height="100px">  |
+| Valentin Tamola   | Developer          | <img src="https://avatars.githubusercontent.com/u/129886045?v=4" width="100px">  |
+| Jazmín Rillo      | Developer          | <img src="https://avatars.githubusercontent.com/u/129994394?s=70&v=4" width="100px">  |
+| Franco Santibañez | Developer          | <img src="https://avatars.githubusercontent.com/u/129998263?s=70&v=4" width="100px">  |
+| Lucas Cardobe     | Developer          | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
 
 ---
 
-Proyecto de visión por computadora en Python que utiliza TensorFlow para detectar y clasificar triángulos, círculos y cuadrados en imágenes. La interfaz gráfica proporciona una forma intuitiva de cargar imágenes y obtener resultados de detección visualmente claros.
+El objetivo del proyecto es implementar una red neuronal artificial para el reconocimiento de figuras geométricas, enseñándole a la computadora a procesar un set de datos ingresados con distintas imágenes de diferentes figuras.
+La idea es desarrollar una interfaz de usuario que permita al usuario ingresar una imagen que contenga una figura geométrica y el programa le mostrará sobre esa misma interfaz el resultado, por ejemplo con el texto: “Cuadrado”. 
+Internamente, el programa poseerá un set de datos, que contendrá las imágenes, previamente normalizadas y validadas, con su correspondiente etiqueta (el nombre de la figura). Este set de datos servirá para enseñarle a la computadora a través de un entrenador, que estará conectado a un modelo: posee las diferentes capas, el optimizador, el tamaño del bache y el formato de entrada y salida, entre otras funcionalidades que se irán agregando a lo largo del desarrollo del proyecto.
+
 
 ## Instalación
-[requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
+Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
+
+Requisitos: [requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
+
+1. Clona el repositorio en tu máquina local:
+```
+git clone https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI.git
+```
+2. Ve al directorio del proyecto:
+```
+cd Proyecto_MI
+```
+3. Asegúrate de tener instalado Python en tu sistema.
+
+4. Descarga e instala las dependencias necesarias. Puedes hacerlo de dos maneras:
+
+a. Opción 1: Manualmente instalando los requisitos:
+
+   - Abre una terminal en el directorio del proyecto.
+   
+   - Ejecuta el siguiente comando para instalar los requisitos:
+   
+     ```
+     pip install -r requirements.txt
+     ```
+     
+b. Opción 2: Descarga automática de requisitos:
+
+   - Una vez ejecutes el proyecto, los requisitos se descargarán automáticamente si no los tienes instalados en tu entorno de desarrollo.
+
+En ambos casos, asegúrate de tener una conexión a internet activa.
+
+5. Una vez completados los pasos anteriores, estás listo para ejecutar el proyecto y utilizar la detección de figuras geométricas.
+
+---
+
+Asegúrate de tener en cuenta los requisitos mencionados y sus dependencias al ejecutar el proyecto. Si tienes algún problema durante la instalación, no dudes en consultar.
+
+Recuerda que estos pasos están diseñados para facilitar la instalación y configuración inicial del proyecto, asegurando que todas las dependencias necesarias estén presentes en tu entorno de desarrollo.
 
 ## Uso
 
-Sacar foto de imagenes de flujo de la app
+Una vez ejecutes el código, las dependencias se descargarán automáticamente. En caso de que encuentres alguna dificultad durante la instalación, te recomendamos cerrar tu entorno de desarrollo integrado (IDE) y volver a abrirlo como administrador.
+
+Una vez completada la descarga, se mostrará la siguiente interfaz de la aplicación:
+
+![Primer Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109972318224130138/image.png)
+
+Para cargar una imagen y realizar la detección de figuras geométricas con la red neuronal, simplemente selecciona el botón "Cargar imagen". Esto abrirá un diálogo que te permitirá seleccionar un archivo de tu ordenador. A continuación, la red neuronal procesará la imagen y mostrará los resultados de detección, como se ilustra en la siguiente imagen:
+
+![Segundo Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109971690080968855/image.png)
+
+Te invitamos a explorar y experimentar con diferentes imágenes para observar cómo la red neuronal detecta y clasifica las formas geométricas en tiempo real.
+
+Recuerda que este proyecto se encuentra en una etapa de prototipo y aún puede presentar algunas limitaciones y posibles fallas. Apreciamos tus comentarios y sugerencias para mejorar y perfeccionar el sistema de detección de figuras geométricas.
+
+Continuamos trabajando en el desarrollo de este proyecto y esperamos ofrecerte futuras actualizaciones con mejoras y nuevas funcionalidades.
+
+¡Gracias por tu interés y contribución en este emocionante proyecto de detección de figuras geométricas!
 
 ## Contribución
 
@@ -29,7 +86,7 @@ Gracias por interesarte en contribuir al proyecto. Actualmente no estamos recibi
 
 ## Licencia
 
-Indica la licencia bajo la cual se distribuye tu proyecto.
+Ninguna
 
 ---
 
