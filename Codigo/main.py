@@ -25,7 +25,7 @@ if __name__ == "__main__":
     crear_directorios()
 
     # Instalamos las dependencias necesarias:
-    instalar_dependencias()
+    # instalar_dependencias()
 
     # Iniciar la UI:
     app = pag.App()
