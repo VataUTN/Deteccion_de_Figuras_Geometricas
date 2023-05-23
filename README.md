@@ -24,51 +24,74 @@ Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
 
 Requisitos: [requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
 
-1. Clona el repositorio en tu máquina local:
+1. Asegúrate de tener instalado Python en tu sistema. Para verificar puedes utilizar el siguiente comando:
+```
+python --version
+```
+Con el comando anterior deberías poder ver la versión de Python instalada en tu sistema. Si tienes múltiples versiones de Python puedes usar el comando anterior reemplazando "python" por "python3".
+
+2. Asegúrate de tener instalado pip en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. Puede intentar ejecutando los siguientes comandos en orden:
+```
+sudo apt update
+sudo apt install curl
+wget https://bootstrap.pypa.io/get-pip.py
+sudo apt install python3-pip
+pip install pip==22.3.1 --break-system-packages
+```
+
+3. Instalar git para poder clonar el proyecto:
+```
+sudo apt install git
+```
+4. Clona el repositorio en tu máquina local:
 ```
 git clone https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI.git
 ```
-2. Ve al directorio del proyecto:
-```
-cd Proyecto_MI
-```
-3. Asegúrate de tener instalado Python en tu sistema.
-
-4. Descarga e instala las dependencias necesarias. Puedes hacerlo de dos maneras:
+5. Descarga e instala las librerías necesarias. Puedes hacerlo de dos maneras:
 
 a. Opción 1: Manualmente instalando los requisitos:
 
    - Abre una terminal en el directorio del proyecto.
-   
-   - Ejecuta el siguiente comando para instalar los requisitos:
-   
+   - Ejecuta los siguientes comandos para instalar los requisitos:
      ```
-     pip install -r requirements.txt
+     sudo apt install python3-tk
      ```
-     
-b. Opción 2: Descarga automática de requisitos:
+     ```
+     sudo apt install python3-pil.imagetk
+     ```
+     ```
+     sudo apt install python3-numpy
+     ```
+     ```
+     sudo apt install python3-opencv
+     ```
+     ```
+     pip install tensorflow
+     ```
+b. Opción 2: Descarga automática de requisitos (EN DESARROLLO):
 
-   - Una vez ejecutes el proyecto, los requisitos se descargarán automáticamente si no los tienes instalados en tu entorno de desarrollo.
+   - Una vez ejecutes el proyecto, los requisitos se descargarán automáticamente si no los tienes instalados en tu sistema.
 
 En ambos casos, asegúrate de tener una conexión a internet activa.
 
-5. Una vez completados los pasos anteriores, estás listo para ejecutar el proyecto y utilizar la detección de figuras geométricas.
+6. Una vez completados los pasos anteriores, estás listo para ejecutar el proyecto y utilizar la detección de figuras geométricas.
 
 ---
 
-Asegúrate de tener en cuenta los requisitos mencionados y sus dependencias al ejecutar el proyecto. Si tienes algún problema durante la instalación, no dudes en consultar.
-
-Recuerda que estos pasos están diseñados para facilitar la instalación y configuración inicial del proyecto, asegurando que todas las dependencias necesarias estén presentes en tu entorno de desarrollo.
-
 ## Uso
-
-Una vez ejecutes el código, las dependencias se descargarán automáticamente. En caso de que encuentres alguna dificultad durante la instalación, te recomendamos cerrar tu entorno de desarrollo integrado (IDE) y volver a abrirlo como administrador.
-
-Una vez completada la descarga, se mostrará la siguiente interfaz de la aplicación:
+Ve al directorio del proyecto:
+```
+cd Proyecto_MI/Codigo
+```
+Para iniciar el programa debe ejecutar el siguiente comando:
+```
+python3 main.py
+```
+Una vez ejecutes el código, las dependencias se descargarán automáticamente (EN DESARROLLO) y se mostrará la siguiente interfaz de la aplicación:
 
 ![Primer Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109972318224130138/image.png)
 
-Para cargar una imagen y realizar la detección de figuras geométricas con la red neuronal, simplemente selecciona el botón "Cargar imagen". Esto abrirá un diálogo que te permitirá seleccionar un archivo de tu ordenador. A continuación, la red neuronal procesará la imagen y mostrará los resultados de detección, como se ilustra en la siguiente imagen:
+Para cargar una imagen y realizar la detección de figuras geométricas con la red neuronal, simplemente selecciona el botón "Cargar imagen". Esto abrirá un diálogo que te permitirá seleccionar un archivo de tu ordenador. A continuación, la red neuronal procesará la imagen y mostrará los resultados de detección, como se ilustra en la siguiente imagen (es posible que la ejecución demore un poco):
 
 ![Segundo Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109971690080968855/image.png)
 
