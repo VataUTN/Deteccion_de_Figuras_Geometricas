@@ -2,11 +2,11 @@ import tkinter as tk
 from tkinter import messagebox, filedialog
 from tkinter.font import BOLD
 from PIL import ImageTk, Image
-from Codigo.Entrenador import Entrenador
+from Entrenador import Entrenador
 import numpy as np
 import cv2
-from Codigo.Normalizador import cargar_imagenes_y_etiquetas
-from Codigo.Modelo import Modelo
+from Normalizador import cargar_imagenes_y_etiquetas
+from Modelo import Modelo
 
 
 # Creando clase de la interfaz de usuario
