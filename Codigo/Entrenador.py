@@ -1,5 +1,5 @@
 import tensorflow as tf
-from pathlib import Path
+import os
 
 
 class Entrenador:
@@ -9,9 +9,9 @@ class Entrenador:
         self.etiquetas_entrenamiento = etiquetas_entrenamiento
 
     def entrenar(self):
-        ruta_modelo = Path('ModeloEntrenado.h5')
+        ruta_modelo = os.path.join("ModeloEntrenado.h5")
         # Comprobar si el archivo que contiene el modelo entrenado existe.
-        if ruta_modelo.is_file():
+        if os.path.isfile(ruta_modelo):
             # Cargar el modelo entrenado:
             modelo_entrenado = tf.keras.models.load_model(str(ruta_modelo))
             print('Modelo existente cargado desde archivo.')
