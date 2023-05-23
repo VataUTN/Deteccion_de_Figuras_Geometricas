@@ -23,8 +23,8 @@ class App:
         self.ventana.geometry("%dx%d+0+0" % (w, h))                 # le doy dimensiones a la ventana.
         self.ventana.config(bg="#fcfcfc")                           # le doy color.
         self.ventana.resizable(False, False)                        # indico que no se pueda redimensionar.
-        logo = self.leer_imagen("UI/logo.png", (200, 200))          # leo el logo con la funcion leer_imagen.
-        self.ventana.iconbitmap("UI/logo.png")
+        logo = self.leer_imagen("logo.png", (200, 200))          # leo el logo con la funcion leer_imagen.
+        self.ventana.iconbitmap("logo.png")
         # Esto es para linux:
         # self.ventana.iconphoto(True, tk.PhotoImage(file="UI/logo.png"))
 
