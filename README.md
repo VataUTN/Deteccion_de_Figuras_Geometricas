@@ -56,17 +56,9 @@ a. Opción 1: Manualmente instalando los requisitos:
  
      ```
      sudo apt install python3-tk
-     ```
-     ```
      sudo apt install python3-pil.imagetk
-     ```
-     ```
      sudo apt install python3-numpy
-     ```
-     ```
      sudo apt install python3-opencv
-     ```
-     ```
      pip install tensorflow
      ```
 b. Opción 2: Descarga automática de requisitos (EN DESARROLLO):
