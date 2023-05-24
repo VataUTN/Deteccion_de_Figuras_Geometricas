@@ -10,7 +10,7 @@
 | Valentin Tamola   | Developer          | <img src="https://avatars.githubusercontent.com/u/129886045?v=4" width="100px">  |
 | Jazmín Rillo      | Developer          | <img src="https://avatars.githubusercontent.com/u/129994394?s=70&v=4" width="100px">  |
 | Franco Santibañez | Developer          | <img src="https://avatars.githubusercontent.com/u/129998263?s=70&v=4" width="100px">  |
-| Lucas Cardobe     | Developer          | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
+| Lucas Cardone     | Developer          | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
 
 ---
 
@@ -53,6 +53,7 @@ a. Opción 1: Manualmente instalando los requisitos:
 
    - Abre una terminal en el directorio del proyecto.
    - Ejecuta los siguientes comandos para instalar los requisitos:
+ 
      ```
      sudo apt install python3-tk
      ```
