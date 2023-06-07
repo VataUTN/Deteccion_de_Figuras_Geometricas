@@ -1,7 +1,7 @@
 import os
 import subprocess
 import sys
-import UI.PaginaPrincipal as pag
+from UI import PaginaPrincipal as pag
 
 
 def crear_directorios():

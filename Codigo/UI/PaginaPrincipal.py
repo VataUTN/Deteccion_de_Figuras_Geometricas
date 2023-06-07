@@ -5,9 +5,9 @@ from tkinter.font import BOLD
 from PIL import ImageTk, Image
 import numpy as np
 import cv2
-from Codigo.Entrenador import Entrenador
-from Codigo.Modelo import Modelo
-from Codigo.Normalizador import cargar_imagenes_y_etiquetas
+from Entrenador import Entrenador
+from Modelo import Modelo
+from Normalizador import cargar_imagenes_y_etiquetas
 
 
 # Creando clase de la interfaz de usuario
@@ -25,7 +25,7 @@ class App:
         self.ventana.config(bg="#fcfcfc")                           # le doy color.
         self.ventana.resizable(False, False)                        # indico que no se pueda redimensionar.
         logo = self.leer_imagen(os.path.join("UI", "logo.png"), (200, 200))          # leo el logo con la funcion leer_imagen.
-        self.ventana.iconbitmap(os.path.join("UI", "logo.png"))
+        # self.ventana.iconbitmap("UI/logo.png")
         # Esto es para linux:
         # self.ventana.iconphoto(True, tk.PhotoImage(file="UI/logo.png"))
 
