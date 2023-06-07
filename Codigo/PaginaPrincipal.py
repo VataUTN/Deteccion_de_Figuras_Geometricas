@@ -152,7 +152,7 @@ class App:
         # Validamos con un indice de precision mayor al 99%.
         reconocio_figura = False
         for i in np.nditer(porcentajes):
-            if i > 0.99999:
+            if i > 0.9:
                 reconocio_figura = True
 
         if reconocio_figura:
