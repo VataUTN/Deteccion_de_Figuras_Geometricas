@@ -1,13 +1,16 @@
 import tensorflow as tf
 import numpy as np
 import random
-from keras import layers
+from keras import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras.optimizers import Adam
+from keras.utils import load_img, img_to_array
 
 
 class Modelo:
 
     # El constructor recibe 5 datos, todos se inicializan por defecto pero pueden modificarse segun la necesidad.
-    def __init__(self, formato_entrada=(100, 100, 1), formato_salida=3, optimizador='adam', bache=32, epocas=10):
+    def __init__(self, formato_entrada=(100, 100, 1), formato_salida=3, optimizador='adam', bache=32, epocas=100):
         self.formato_entrada = formato_entrada
         self.formato_salida = formato_salida
         self.optimizador = optimizador
@@ -28,16 +31,16 @@ class Modelo:
 
         # Se crea un modelo secuencial vacío. El modelo secuencial es una pila lineal de capas.
         # Definimos la arquitectura de la red neuronal:
-        self.arquitectura = tf.keras.Sequential([
-            layers.Conv2D(32, (3, 3), activation='relu', input_shape=self.formato_entrada),     # Capa de Convolución y Entrada.
-            layers.MaxPooling2D((2, 2)),                                                        # Capa de Submuestro/Pooling: Reduce la dimensionalidad de los mapas de características obtenidos de la capa de convolución anterior.
-            layers.Conv2D(64, (3, 3), activation='relu'),                                       # Capa de Convolución.
-            layers.MaxPooling2D((2, 2)),                                                        # Capa de Submuestro/Pooling.
-            layers.Conv2D(64, (3, 3), activation='relu'),                                       # Capa de Convolución.
-            layers.Flatten(),                                                                   # Capa de Aplanamiento: Para convertir una entrada multidimensional en una sola dimensión. Se usa para pasar un formato de matriz a un vector lineal.
-            layers.Dense(64, activation='relu'),                                                # Capa Oculta: Es una capa densa(totalmente conectada), que realiza operaciones lineales y no lineales en los datos.
-            layers.Dense(self.formato_salida, activation='softmax')                             # Capa de Salida.
-        ])
+        self.arquitectura = Sequential()
+        self.arquitectura.add(Conv2D(32, (3,3), activation='relu', input_shape=(64, 64, 3)))
+        self.arquitectura.add(MaxPooling2D((2,2)))
+        self.arquitectura.add(Conv2D(64, (3,3), activation='relu'))
+        self.arquitectura.add(MaxPooling2D((2,2)))
+        self.arquitectura.add(Conv2D(128, (3,3), activation='relu'))
+        self.arquitectura.add(MaxPooling2D((2,2)))
+        self.arquitectura.add(Flatten())
+        self.arquitectura.add(Dense(128, activation='relu'))
+        self.arquitectura.add(Dense(3, activation='softmax'))
 
         # Compilamos el modelo para utilizarlo en el entrenador.
         self.compilar()
@@ -46,7 +49,29 @@ class Modelo:
         self.resumen()
 
     def compilar(self):
-        self.arquitectura.compile(optimizer=self.optimizador, loss='categorical_crossentropy', metrics=['accuracy'])
+        self.arquitectura.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
     def resumen(self):
         self.arquitectura.summary()
+
+    def predecir(self, archivo):
+        x = load_img(archivo, target_size=(64, 64))
+        x = img_to_array(x)
+        x = np.expand_dims(x, axis=0)
+        x = x / 255.0  # Normalizar la imagen.
+        porcentajes = self.arquitectura.predict(x)
+        print(type(porcentajes))
+        print(porcentajes)
+        resultado = porcentajes[0]
+        prediccion = np.argmax(resultado)
+        if prediccion == 0:
+            prediccion = "CIRCULO"
+            print("prediccion: Circulo")
+        elif prediccion == 1:
+            prediccion = "CUADRADO"
+            print("prediccion: Cuadrado")
+        elif prediccion == 2:
+            prediccion = "TRIANGULO"
+            print("prediccion: Triangulo")
+
+        return porcentajes, prediccion
