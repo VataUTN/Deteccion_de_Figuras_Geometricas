@@ -93,6 +93,8 @@ class App:
     def cargar_imagen(self, contenedor_abajo):
 
         ruta_archivo = filedialog.askopenfilename()  # Hago que se abra la biblioteca, guardo ruta imagen ingresada.
+        if not os.path.exists("imagen"):
+            os.makedirs("imagen")
 
         if not ruta_archivo:                    # Verificar si se seleccionó un archivo.
             messagebox.showerror("Error", "No se seleccionó ningún archivo.")
