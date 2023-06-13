@@ -60,6 +60,7 @@ class App:
         self.label_imagen = None
         self.texto_reconoce = None
         self.figura = None
+        self.texto_porcentajes = None
 
         # PANEL PARTE DE ABAJO DEL PANEL DERECHO.
         # Contenedor, alto=50, sin borde, relieve del borde:solido, color de fondo.
@@ -104,7 +105,7 @@ class App:
         try:
             # Intentar abrir el archivo como una imagen
             imagen = Image.open(ruta_archivo)
-            imagen.thumbnail((200, 200))
+            imagen.thumbnail((100, 100))
 
             # Transformo la imagen a una PhotoImage para poder mostrarla en la interfaz.
             imagen_ingresada = ImageTk.PhotoImage(imagen)
@@ -144,6 +145,9 @@ class App:
         if self.figura is not None:                 # Eliminar el widget Label del resultado si es que hay uno.
             self.figura.destroy()
 
+        if self.texto_porcentajes is not None:      # Eliminar el widget Label de los porcentajes si es que hay uno.
+            self.texto_porcentajes.destroy()
+
         # Creo un objeto de la clase entrenador, dejo las propiedades por defecto.
         entrenador = Entrenador(Modelo())
 
@@ -151,27 +155,25 @@ class App:
         entrenador.entrenar()
         porcentajes, prediccion = entrenador.modelo.predecir(os.path.join('imagen', 'imagen_ingresada.png'))
 
-        # Validamos con un indice de precision mayor al 99%.
-        reconocio_figura = False
-        for i in np.nditer(porcentajes):
-            if i > 0.9999:
-                reconocio_figura = True
-            if(prediccion == "CIRCULO" and i > 0.9):
-                reconocio_figura = True
+        porcentajes_obtenidos = "Porcentajes obtenidos por la red neuronal:\n"
+        # En texto_porcentajes vamos agregando los porcentajes obtenidos por la red neuronal.
+        for i, porcentaje in enumerate(porcentajes[0]):
+            if i==0:
+                porcentajes_obtenidos += f"Circulo: {round(porcentaje*100,2)}%"
+            elif i==1:
+                porcentajes_obtenidos += f"\nCuadrado: {round(porcentaje*100,2)}%"
+            elif i==2:
+                porcentajes_obtenidos += f"\nTriangulo: {round(porcentaje*100,2)}%"
 
-        if reconocio_figura:
-            self.texto_reconoce = tk.Label(contenedor_abajo, text="Es un:", font=('Arial', 14), fg="#666a88", bg="#fcfcfc", pady=15)
+        self.texto_reconoce = tk.Label(contenedor_abajo, text="Es un:", font=('Arial', 14), fg="#666a88", bg="#fcfcfc", pady=15)
 
-            # Creo un label que muestre el resultado de la predicción.
-            self.figura = tk.Label(contenedor_abajo, text=f"{prediccion}", font=('Arial', 14), fg="black",
+        # Creo un label que muestre el resultado de la predicción.
+        self.figura = tk.Label(contenedor_abajo, text=f"{prediccion}", font=('Arial', 14), fg="black",
                                    bg="#3e7ff6", highlightbackground="black", highlightthickness=2, pady=20, padx=20)
-        else:
-            self.texto_reconoce = tk.Label(contenedor_abajo, text="", font=('Arial', 14), fg="#666a88", bg="#fcfcfc")
 
-            # Creo un label que muestre que no hubo predicción.
-            self.figura = tk.Label(contenedor_abajo, text="No se ha reconocido ninguna figura", font=('Arial', 14),
-                                   fg="black",
-                                   bg="#3e7ff6", highlightbackground="black", highlightthickness=2, pady=20, padx=20)
+        self.texto_porcentajes = tk.Label(contenedor_abajo, text=porcentajes_obtenidos, font=('Arial', 12), fg="black",
+                               bg="#fcfcfc", pady=20, padx=10)
 
         self.texto_reconoce.pack()
         self.figura.pack()
+        self.texto_porcentajes.pack()
