@@ -78,7 +78,7 @@ cd Proyecto_MI/Codigo
 ```
 Para iniciar el programa debe ejecutar el siguiente comando:
 ```
-python3 main.py
+sudo python3 main.py
 ```
 Una vez ejecutes el código, las dependencias se descargarán automáticamente (este paso puede demorar algunos minutos dependiendo de tu conexión a internet) y se mostrará la siguiente interfaz de la aplicación:
 
