@@ -1,4 +1,4 @@
-from Codigo import Instalador
+import Instalador
 
 # Clase Principal.
 if __name__ == "__main__":
