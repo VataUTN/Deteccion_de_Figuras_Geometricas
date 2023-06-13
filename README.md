@@ -14,9 +14,9 @@
 
 ---
 
-El objetivo del proyecto es implementar una red neuronal artificial para el reconocimiento de figuras geométricas, enseñándole a la computadora a procesar un set de datos ingresados con distintas imágenes de diferentes figuras.
+El objetivo del proyecto es implementar una red neuronal artificial para el reconocimiento de figuras geométricas, enseñándole a la computadora a procesar un set de datos ingresados con distintas imágenes de diferentes figuras. Actualmente la red está entrenada con imágenes de círculos, cuadrados y triángulos, esto quiere decir que la red tiene tres posibles salidas.
 La idea es desarrollar una interfaz de usuario que permita al usuario ingresar una imagen que contenga una figura geométrica y el programa le mostrará sobre esa misma interfaz el resultado, por ejemplo con el texto: “Cuadrado”. 
-Internamente, el programa poseerá un set de datos, que contendrá las imágenes, previamente normalizadas y validadas, con su correspondiente etiqueta (el nombre de la figura). Este set de datos servirá para enseñarle a la computadora a través de un entrenador, que estará conectado a un modelo: posee las diferentes capas, el optimizador, el tamaño del bache y el formato de entrada y salida, entre otras funcionalidades que se irán agregando a lo largo del desarrollo del proyecto.
+Internamente, el programa poseerá un set de datos que contendrá las imágenes de entrenamiento y de validación. Este set de datos servirá para enseñarle a la computadora a través de un entrenador que tendrá dentro de sí un modelo convolucional. Este modelo cuenta con las diferentes capas de neuronas, el tamaño del bache y el formato de entrada y salida, entre otras funcionalidades que se fueron agregando a lo largo del desarrollo del proyecto.
 
 
 ## Instalación
@@ -30,7 +30,7 @@ python --version
 ```
 Con el comando anterior deberías poder ver la versión de Python instalada en tu sistema. Si tienes múltiples versiones de Python puedes usar el comando anterior reemplazando "python" por "python3".
 
-2. Asegúrate de tener instalado pip en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. Puede intentar ejecutando los siguientes comandos en orden:
+2. Asegúrate de tener instalado pip en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. En caso de tener problemas puede intentar ejecutando los siguientes comandos en orden:
 ```
 sudo apt update
 sudo apt install curl
@@ -61,7 +61,7 @@ a. Opción 1: Manualmente instalando los requisitos:
      sudo apt install python3-opencv
      pip install tensorflow
      ```
-b. Opción 2: Descarga automática de requisitos (EN DESARROLLO):
+b. Opción 2: Descarga automática de requisitos:
 
    - Una vez ejecutes el proyecto, los requisitos se descargarán automáticamente si no los tienes instalados en tu sistema.
 
@@ -80,7 +80,7 @@ Para iniciar el programa debe ejecutar el siguiente comando:
 ```
 python3 main.py
 ```
-Una vez ejecutes el código, las dependencias se descargarán automáticamente (EN DESARROLLO) y se mostrará la siguiente interfaz de la aplicación:
+Una vez ejecutes el código, las dependencias se descargarán automáticamente (este paso puede demorar algunos minutos dependiendo de tu conexión a internet) y se mostrará la siguiente interfaz de la aplicación:
 
 ![Primer Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109972318224130138/image.png)
 
@@ -88,12 +88,7 @@ Para cargar una imagen y realizar la detección de figuras geométricas con la r
 
 ![Segundo Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109971690080968855/image.png)
 
-Te invitamos a explorar y experimentar con diferentes imágenes para observar cómo la red neuronal detecta y clasifica las formas geométricas en tiempo real.
-
-Recuerda que este proyecto se encuentra en una etapa de prototipo y aún puede presentar algunas limitaciones y posibles fallas. Apreciamos tus comentarios y sugerencias para mejorar y perfeccionar el sistema de detección de figuras geométricas.
-
-Continuamos trabajando en el desarrollo de este proyecto y esperamos ofrecerte futuras actualizaciones con mejoras y nuevas funcionalidades.
-
+Te invitamos a explorar y experimentar con diferentes imágenes para observar cómo la red neuronal detecta y clasifica las formas geométricas en tiempo real. Recuerda que la red sólo reconoce círculos, cuadrados y triángulos. Si el porcentaje de reconocimiento es menor al requerido para considerarse como una de las tres figuras, la interfaz mostrará un mensaje diciendo "No se ha reconocido ninguna figura" y mostrará en pantalla los porcentajes de cada figura.
 ¡Gracias por tu interés y contribución en este emocionante proyecto de detección de figuras geométricas!
 
 ## Contribución
