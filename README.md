@@ -30,7 +30,7 @@ python --version
 ```
 Con el comando anterior deberías poder ver la versión de Python instalada en tu sistema. Si tienes múltiples versiones de Python puedes usar el comando anterior reemplazando "python" por "python3".
 
-2. Asegúrate de tener instalado pip en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. En caso de tener problemas puede intentar ejecutando los siguientes comandos en orden:
+2. (OPCIONAL) Asegúrate de tener instalado pip en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. En caso de tener problemas puede intentar ejecutando los siguientes comandos en orden:
 ```
 sudo apt update
 sudo apt install curl
@@ -38,6 +38,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo apt install python3-pip
 pip install pip==22.3.1 --break-system-packages
 ```
+Aclaración: si no lo tienes instalado, una vez que ejecutes el programa, se instalará automáticamente.
 
 3. Instalar git para poder clonar el proyecto:
 ```
@@ -58,7 +59,6 @@ a. Opción 1: Manualmente instalando los requisitos:
      sudo apt install python3-tk
      sudo apt install python3-pil.imagetk
      sudo apt install python3-numpy
-     sudo apt install python3-opencv
      pip install tensorflow
      ```
 b. Opción 2: Descarga automática de requisitos:
