@@ -21,7 +21,7 @@ La idea es desarrollar una interfaz de usuario que permita al usuario ingresar u
 Internamente, el programa poseerá un **set de datos** que contendrá las imágenes de entrenamiento y de validación. Este set de datos servirá para enseñarle a la computadora a través de un entrenador que tendrá dentro de sí un modelo convolucional. Este modelo cuenta con las diferentes capas de neuronas, el tamaño del bache y el formato de entrada y salida, entre otras funcionalidades que se fueron agregando a lo largo del desarrollo del proyecto.
 
 
-## Instalación
+## Instalación en Linux
 Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
 
 Requisitos: [requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
