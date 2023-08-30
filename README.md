@@ -1,38 +1,38 @@
-# Proyecto de Detección de Figuras Geométricas
+# Geometric Shapes Detection Project
 
-![Título del Proyecto](https://cdn.discordapp.com/attachments/1081778303406448753/1109979459093794846/image.png)
+## Team Profiles
 
-## Perfiles de los Integrantes
-
-| Nombre            | Rol                | Avatar                                  |
-|-------------------|--------------------|-----------------------------------------|
-| Luca Zamperoni    | Product Owner      | <img src="https://avatars.githubusercontent.com/u/129890529?v=4" width="100px" height="100px">  |
-| Valentin Tamola   | Developer          | <img src="https://avatars.githubusercontent.com/u/129886045?v=4" width="100px">  |
-| Jazmín Rillo      | Developer          | <img src="https://avatars.githubusercontent.com/u/129994394?s=70&v=4" width="100px">  |
-| Franco Santibañez | Developer          | <img src="https://avatars.githubusercontent.com/u/129998263?s=70&v=4" width="100px">  |
-| Lucas Cardone     | Developer          | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
+| Name            | Role            | Avatar                                 |
+|-----------------|-----------------|----------------------------------------|
+| Luca Zamperoni  | Product Owner   | <img src="https://avatars.githubusercontent.com/u/129890529?v=4" width="100px" height="100px">  |
+| Valentin Tamola | Developer       | <img src="https://avatars.githubusercontent.com/u/129886045?v=4" width="100px">  |
+| Jazmín Rillo    | Developer       | <img src="https://avatars.githubusercontent.com/u/129994394?s=70&v=4" width="100px">  |
+| Franco Santibañez | Developer      | <img src="https://avatars.githubusercontent.com/u/129998263?s=70&v=4" width="100px">  |
+| Lucas Cardone   | Developer       | <img src="https://avatars.githubusercontent.com/u/129989551?v=4" width="100px">  |
 
 ---
 
-El objetivo del proyecto es implementar una **red neuronal artificial para el reconocimiento de figuras geométricas**, enseñándole a la computadora a procesar un set de datos ingresados con distintas imágenes de diferentes figuras. Actualmente la red está entrenada con imágenes de **círculos**, **cuadrados** y **triángulos**, esto quiere decir que la red tiene tres posibles salidas.
+The objective of this project is to implement an **artificial neural network for the recognition of geometric shapes**, teaching the computer to process a dataset with different images of various shapes. Currently, the network is trained with images of **circles**, **squares**, and **triangles**, which means the network has three possible outputs.
 
-La idea es desarrollar una interfaz de usuario que permita al usuario ingresar una imagen que contenga una figura geométrica y el programa le mostrará sobre esa misma interfaz el resultado, por ejemplo con el texto “Cuadrado”, seguido de los **porcentajes de concordancia** de cada figura obtenidos por la red.
+The idea is to develop a user interface that allows the user to input an image containing a geometric shape, and the program will display the result on the same interface, for example, with the text "Square," followed by the **confidence percentages** for each shape obtained by the network.
 
-Internamente, el programa poseerá un **set de datos** que contendrá las imágenes de entrenamiento y de validación. Este set de datos servirá para enseñarle a la computadora a través de un entrenador que tendrá dentro de sí un modelo convolucional. Este modelo cuenta con las diferentes capas de neuronas, el tamaño del bache y el formato de entrada y salida, entre otras funcionalidades que se fueron agregando a lo largo del desarrollo del proyecto.
+Internally, the program will have a **dataset** containing training and validation images. This dataset will be used to teach the computer through a trainer that will have a convolutional model within it. This model includes different layers of neurons, batch size, input and output format, among other functionalities that have been added throughout the project's development.
 
+## Installation on Linux
+To install and run the project, follow these steps:
 
-## Instalación en Linux
-Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
+Requirements: [requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
 
-Requisitos: [requirements.txt](https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI/blob/main/Codigo/requirements.txt)
+1. Make sure you have **Python** installed on your system. You can check by using the following command:
 
-1. Asegúrate de tener instalado **Python** en tu sistema. Para verificar puedes utilizar el siguiente comando:
 ```
 python --version
 ```
-Con el comando anterior deberías poder ver la versión de Python instalada en tu sistema. Si tienes múltiples versiones de Python puedes usar el comando anterior reemplazando "python" por "python3".
 
-2. **OPCIONAL** (más adelante puede instalar automáticamente pip al ejecutar el programa): Asegúrate de tener instalado **pip** en tu sistema. En algunas versiones esta instalación puede acarrear algunos problemas relacionados a las distintas versiones existentes. En caso de tener problemas puede intentar ejecutando los siguientes comandos en orden:
+With the above command, you should be able to see the installed Python version on your system. If you have multiple Python versions, you can use the same command with "python3."
+
+2. **OPTIONAL** (pip might be automatically installed later): Ensure you have **pip** installed on your system. In some cases, installing pip can lead to issues due to various existing versions. If you encounter problems, you can try running the following commands in order:
+
 ```
 sudo apt update
 sudo apt install curl
@@ -40,72 +40,77 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo apt install python3-pip
 pip install pip==22.3.1 --break-system-packages
 ```
-Aclaración: si no lo tienes instalado, una vez que ejecutes el programa, se instalará automáticamente.
 
-3. Instalar git para poder clonar el proyecto:
+Note: If you don't have it installed, it will be automatically installed when you run the program later.
+
+3. Install git to clone the project:
+
 ```
 sudo apt install git
 ```
-4. Clona el repositorio en tu máquina local:
+
+4. Clone the repository to your local machine:
+   
 ```
 git clone https://github.com/Grupo-E-Metodologia-de-la-Investigacion/Proyecto_MI.git
 ```
-5. Descarga e instala las **librerías necesarias**. Puedes hacerlo de dos maneras:
 
-a. Opción 1 (Recomendada): Descarga automática de requisitos:
+5. Download and install the **necessary libraries**. You can do this in two ways:
 
-   - Sigue los pasos especificados en "Uso" y los requisitos se descargarán automáticamente si no los tienes instalados en tu sistema (este paso puede demorar algunos minutos y requerir algunas confirmaciones).
-   - Si por algún motivo esta opción no funciona, puede intentar la descarga manual de las librerías requeridas.
-   
-b. Opción 2: Manualmente instalando los requisitos:
+a. Option 1 (Recommended): Automatic requirements download:
+   - Follow the steps specified in "Usage," and the requirements will be automatically downloaded if you don't have them installed on your system (this step may take some time and require some confirmations).
+   - If for some reason this option doesn't work, you can try manually downloading the required libraries.
 
-   - Abre una terminal en el directorio del proyecto.
-   - Ejecuta los siguientes comandos para instalar los requisitos:
- 
+b. Option 2: Manually install the requirements:
+   - Open a terminal in the project directory.
+   - Run the following commands to install the requirements:
+
      ```
      sudo apt install python3-tk
      sudo apt install python3-pil.imagetk
      sudo apt install python3-numpy
      pip install tensorflow
      ```
+     
+In both cases, make sure you have an active internet connection.
 
-En ambos casos, asegúrate de tener una conexión a internet activa.
-
-6. Una vez completados los pasos anteriores, estás listo para ejecutar el proyecto y utilizar la detección de figuras geométricas.
+6. Once you have completed the above steps, you are ready to run the project and use the geometric shapes detection.
 
 ---
 
-## Uso
-Ve al directorio del proyecto:
+## Usage
+Go to the project directory:
+
 ```
 cd Proyecto_MI/Codigo
 ```
-Para iniciar el programa debe ejecutar el siguiente comando:
+
+To start the program, execute the following command:
+
 ```
 sudo python3 main.py
 ```
-Una vez ejecutes el código, las dependencias se descargarán automáticamente y se mostrará la siguiente interfaz de la aplicación:
 
-![Primer Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109972318224130138/image.png)
+Once you run the code, the dependencies will be downloaded automatically, and you will see the following application interface:
 
-Para cargar una imagen y realizar la detección de figuras geométricas con la red neuronal, simplemente selecciona el botón **"Cargar imagen"**. Esto abrirá un diálogo que te permitirá seleccionar un archivo de tu ordenador. Hemos proporcionado en este repositorio algunas imágenes de prueba con las que puede hacer algunas pruebas! A continuación, la red neuronal procesará la imagen y mostrará los resultados de detección, como se ilustra en la siguiente imagen:
+![First Flow](https://cdn.discordapp.com/attachments/1081778303406448753/1109972318224130138/image.png)
 
-![Segundo Flujo](https://cdn.discordapp.com/attachments/1081778303406448753/1109971690080968855/image.png)
+To load an image and perform geometric shapes detection with the neural network, simply click the **"Cargar imagen"** button. This will open a dialog that allows you to select a file from your computer. We have provided some test images in this repository for you to try out! The neural network will then process the image and display the detection results, as illustrated in the following image:
 
-_En la última versión del proyecto se agrega a ese resultado los porcentajes de concordancia._
+![Second Flow](https://cdn.discordapp.com/attachments/1081778303406448753/1109971690080968855/image.png)
 
-Te invitamos a explorar y experimentar con diferentes imágenes para observar cómo la red neuronal detecta y clasifica las formas geométricas en tiempo real. Recuerda que la red sólo reconoce círculos, cuadrados y triángulos.
+_In the latest version of the project, confidence percentages are added to this result._
 
-¡Gracias por tu interés y contribución en este emocionante proyecto de detección de figuras geométricas!
+We invite you to explore and experiment with different images to see how the neural network detects and classifies geometric shapes in real-time. Remember that the network only recognizes circles, squares, and triangles.
 
-## Contribución
+Thank you for your interest and contribution to this exciting geometric shapes detection project!
 
-Gracias por interesarte en contribuir al proyecto. Actualmente no estamos recibiendo contribuciones en el mismo.
+## Contribution
+Thank you for your interest in contributing to the project. Currently, we are not accepting contributions.
 
-## Licencia
-
-Ninguna
+## License
+None
 
 ---
 
-¡Gracias por revisar nuestro proyecto de detección de figuras geométricas!
+Thank you for reviewing our geometric shapes detection project!
